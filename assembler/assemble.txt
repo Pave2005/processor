@@ -1,0 +1,19 @@
+push 1
+pop rax
+:next
+push 300
+:fuck
+push 3
+div
+push 700
+push 100
+div
+sub
+push rax
+push 1
+add
+call :fuck
+pop rax
+push 2
+out
+hlt

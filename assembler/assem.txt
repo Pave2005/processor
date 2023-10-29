@@ -1,0 +1,20 @@
+push 1
+pop rax
+:next
+push 300
+push 3
+div
+push 700
+push 100
+div
+sub
+push rax
+push 1
+add
+pop rax
+push 2
+jb :skip
+jmp :next
+:skip
+out
+hlt
