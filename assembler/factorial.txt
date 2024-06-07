@@ -1,0 +1,39 @@
+in
+pop rax
+push rax
+pop rbx
+call :factorial
+push rax
+out
+hlt
+
+:factorial
+push 0
+push rax
+je :zero
+push rax
+push rax
+push 1
+sub
+pop rax
+jmp :factorial
+
+:return
+push rax
+mul
+pop rax
+pop rcx
+push rcx
+push rcx
+push rbx
+jne :return
+push rax
+mul
+pop rax
+ret
+
+:zero
+push 1
+pop rax
+jmp :return
+

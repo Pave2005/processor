@@ -1,19 +1,76 @@
-push 1
+in
+in
+in
+pop rcx
+pop rbx
 pop rax
-:next
-push 300
-:fuck
-push 3
-div
-push 700
-push 100
-div
-sub
+call :discr
+push 0
+push rdx
+je :one
+push 0
+push rdx
+ja :two_roots
+push 0
+push rdx
+jb :no_roots
+push 888
+out
+hlt
+
+:discr
+push rbx
+push rbx
+mul
+push 4
 push rax
-push 1
+mul
+push rcx
+mul
+sub
+pop rdx
+ret
+
+:one
+push rbx
+push -1
+mul
+push rdx
+sqrt
 add
-call :fuck
-pop rax
 push 2
+push rax
+mul
+div
+out
+hlt
+
+:two_roots
+push rbx
+push -1
+mul
+push rdx
+sqrt
+add
+push 2
+push rax
+mul
+div
+out
+push rbx
+push -1
+mul
+push rdx
+sqrt
+sub
+push 2
+push rax
+mul
+div
+out
+hlt
+
+:no_roots
+push 7879
 out
 hlt
